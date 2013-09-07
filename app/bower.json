@@ -1,0 +1,14 @@
+{
+    "name": "Plutus",
+    "version": "0.0.1",
+    "homapage": "https://github.com/virallalakia/plutus",
+    "authors": ["Dhwaneet Bhatt", "Viral Lalakia"],
+    "main": "app/main.js",
+    "dependencies": {
+        "requirejs": null,
+        "jquery": null,
+        "ember": null,
+        "ember-data": null,
+        "handlebars": null
+    }
+}
