@@ -7,6 +7,6 @@ require.config({
    }
 });
 
-require([], function () {
+require(['jquery', 'handlebars', 'ember', 'ember-data'], function () {
     console.log('Hello World');
 });
