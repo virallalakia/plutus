@@ -1,17 +1,13 @@
 {
-  "name": "Plutus",
-  "version": "0.0.1",
-  "homapage": "https://github.com/virallalakia/plutus",
-  "authors": [
-    "Dhwaneet Bhatt",
-    "Viral Lalakia"
-  ],
-  "main": "app/main.js",
-  "dependencies": {
-    "requirejs": "2.1.8",
-    "jquery": "1.9.1",
-    "ember": "1.0.0-rc.4",
-    "ember-data-shim": "0.0.13",
-    "handlebars": "1.0.0-rc.4"
-  }
+    "name": "Plutus",
+    "version": "0.0.1",
+    "homapage": "https://github.com/virallalakia/plutus",
+    "main": "app/scripts/app.js",
+    "dependencies": {
+        "jquery": "1.9.1",
+        "ember": "1.0.0-rc.3",
+        "ember-data-shim": "0.0.13",
+        "handlebars": "1.0.0-rc.3",
+        "bootstrap": "3.0.0"
+    }
 }

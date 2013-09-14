@@ -6,7 +6,7 @@ var express = require('express'),
 app.configure(function () {
     app.set('port', 3000);
     app.use(express.bodyParser());
-    app.use(express.static(path.join(__dirname + '/dist')));
+    app.use(express.static(path.join(__dirname + '/build')));
 });
 
 server.listen(app.get('port'), function() {
