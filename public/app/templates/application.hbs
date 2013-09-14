@@ -1,4 +1,13 @@
-<h1>Plutus</h1>
-{{#linkTo "index"}}Home{{/linkTo}}
-{{#linkTo "about"}}About{{/linkTo}}
-{{outlet}}
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Plutus</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active">{{#linkTo 'accounts'}}Accounts{{/linkTo}}</li>
+        </ul>
+    </div>
+</nav>
+<div>
+    {{outlet}}
+</div>
