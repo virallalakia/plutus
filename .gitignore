@@ -1,5 +1,11 @@
 public/node_modules/
-public/debug/
-public/qunit/
-public/release/
+public/debug/app.js
+public/debug/app.css
+public/debug/lib.js
+public/debug/templates.js
+public/qunit/app.js
+public/qunit/lib.js
+public/qunit/tests.js
+public/release/app.css.min
+public/release/app.min.js
 node_modules/

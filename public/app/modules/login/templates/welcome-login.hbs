@@ -1,0 +1,36 @@
+<form class="form-horizontal" role="form">
+    <fieldset>
+        <div id="legend">
+            <legend>Login</legend>
+        </div>
+        <div class="form-group">
+            <!-- Username -->
+            <label class="col-lg-1 control-label" for="username">Username</label>
+            <div class="col-lg-3">
+                <input type="text"  class="form-control" id="username" name="username">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Password -->
+            <label class="col-lg-1 control-label" for="password">Password</label>
+            <div class="col-lg-3">
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Button -->
+            <div class="col-lg-offset-1">
+              <button type="button" class="btn btn-success">Login</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <!-- Link to sign up -->
+            <label class="col-lg-offset-1 control-label">
+                Not a member? {{#linkTo 'welcome.signup'}}Sign up here{{/linkTo}}
+            </label>
+        </div>
+    </fieldset>
+</form>

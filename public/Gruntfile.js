@@ -4,8 +4,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         jshint: {
-            files: ['gruntfile.js', 'app/controllers/*.js', 'app/*.js', 'app/views/*.js',
-                    'app/routes/*.js', 'app/models/*.js'],
+            files: ['gruntfile.js', 'app/modules/**/*.js', 'app/*.js'],
             options: {
                 eqeqeq: true,
                 eqnull: true,
@@ -32,8 +31,7 @@ module.exports = function(grunt) {
                 dest:'debug/lib.js'
             },
             app: {
-                src: ['app/app.js', 'debug/templates.js', 'app/controllers/*.js', 'app/views/*.js',
-                      'app/routes/*.js', 'app/models/*.js'],
+                src: ['app/app.js', 'debug/templates.js', 'app/modules/**/*.js'],
                 dest:'debug/app.js'
             },
             test: {
@@ -68,11 +66,12 @@ module.exports = function(grunt) {
                         var arr = fileName.split("."),
                             path = arr[arr.length - 2].split("/"),
                             name = path[path.length - 1];
+                        name = name.replace(/-/g, "/");
                         return name;
                     }
                 },
                 files: {
-                    "debug/templates.js": "app/templates/*.hbs"
+                    "debug/templates.js": "app/modules/**/*.hbs"
                 }
             }
         },
@@ -111,7 +110,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['app/lib/*.js', 'app/*.js', 'app/controllers/*.js', 'app/views/*.js',
-                        'app/routes/*.js', 'app/models/*.js', 'app/css/*.scss',
+                        'app/routes/*.js', 'app/models/*.js', 'app/css/*.css',
                         'app/templates/*.hbs', 'app/tests/*.js'],
                 tasks: ['ember_handlebars','concat', 'cssmin'],
                 options: {
