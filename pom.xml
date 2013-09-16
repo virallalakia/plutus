@@ -15,8 +15,8 @@
 		<spring.version>3.2.4.RELEASE</spring.version>
 		<jackson-jaxrs.version>1.9.13</jackson-jaxrs.version>
 		<dozer.version>5.4.0</dozer.version>
-		<cxf-rt.version>2.7.6</cxf-rt.version>
-		<cxf-common.version>2.5.11</cxf-common.version>
+		<cxf-rt.version>2.4.10</cxf-rt.version>
+		<cxf-common.version>2.4.10</cxf-common.version>
 	</properties>
 
 	<dependencies>
@@ -39,6 +39,16 @@
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
