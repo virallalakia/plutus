@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.EnhancedPatternLayout">
+			<param name="ConversionPattern"
+				value='datetime="%d" 
+					severity="%-5p" 
+					host="%X{TMPS-Hostname}" 
+					service_version="%X{TMPS-Service-Version}" 
+					client_host="%X{TMPS-Client-Hostname}" 
+					client_version="%X{TMPS-Client-App-Version}" 
+					cid="%X{TMPS-Correlation-Id}" 
+					rid="%X{TMPS-Request-Id}" 
+					sid="%X{TMPS-Session-Id}" 
+					thread="%t" category="%c" %X{BAMStrategyMDCkey} - %m%n' />
+		</layout>
+	</appender>
+	<logger name="org.springframework">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="WARN" />
+	</logger>
+	<logger name="org.hibernate">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="WARN" />
+	</logger>
+	<logger name="org.springframework.aop.aspectj">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="DEBUG" />
+	</logger>
+	<logger name="org.springframework.aop.interceptor">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="TRACE" />
+	</logger>
+	<logger name="org.apache.cxf">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="WARN" />
+	</logger>
+	<logger name="org.dozer">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="ERROR" />
+	</logger>
+	<logger name="com.ticketmaster.platform.logging">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="ERROR" />
+	</logger>
+	<logger name="org.apache.cxf.interceptor.LoggingOutInterceptor">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="DEBUG" />
+	</logger>
+	<logger name="org.apache.cxf.interceptor.LoggingInInterceptor">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="DEBUG" />
+	</logger>
+	<logger name="com.ticketmaster.platform.monitoring">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="ERROR" />
+	</logger>
+
+	<logger name="org.quartz.core">
+		<!-- Print only messages of level warn or above in the package com.foo -->
+		<level value="INFO" />
+	</logger>
+
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+</log4j:configuration>
