@@ -1,4 +1,4 @@
-package com.voidmainworld.plutus.sample;
+package com.voidmainworld.plutus.service;
 
 import java.util.List;
 

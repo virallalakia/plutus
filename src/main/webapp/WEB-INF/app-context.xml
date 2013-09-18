@@ -33,7 +33,7 @@
 		</property>
 	</bean>
 
-	<bean id="plutusService" class="com.voidmainworld.plutus.sample.impl.PlutusServiceImpl" />
+	<bean id="plutusService" class="com.voidmainworld.plutus.service.impl.PlutusServiceImpl" />
 
 	<!-- REST - JAX-RS -->
 	<jaxrs:server id="rsApplicationService" address="${rest.path}">

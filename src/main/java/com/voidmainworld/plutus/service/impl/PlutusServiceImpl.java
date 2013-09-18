@@ -1,4 +1,4 @@
-package com.voidmainworld.plutus.sample.impl;
+package com.voidmainworld.plutus.service.impl;
 
 import static com.voidmainworld.plutus.constant.PlutusContants.APP_JSON;
 import static com.voidmainworld.plutus.constant.PlutusContants.APP_XML;
@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import com.voidmainworld.plutus.sample.PlutusService;
+import com.voidmainworld.plutus.service.PlutusService;
 import com.voidmainworld.plutus.vo.user.UserVO;
 
 @Path("/user")
