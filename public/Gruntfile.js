@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                 dest:'debug/app.js'
             },
             test: {
-                src: ['app/tests/*.js'],
+                src: ['app/tests/**/*.js', 'app/tests/*.js'],
                 dest: 'qunit/tests.js'
             },
             testLib: {
@@ -109,9 +109,8 @@ module.exports = function(grunt) {
         },
         watch: {
             scripts: {
-                files: ['app/lib/*.js', 'app/*.js', 'app/controllers/*.js', 'app/views/*.js',
-                        'app/routes/*.js', 'app/models/*.js', 'app/css/*.css',
-                        'app/templates/*.hbs', 'app/tests/*.js'],
+                files: ['app/lib/*.js', 'app/*.js', 'app/modules/**/*.js', 'app/css/*.css',
+                        'app/modules/**/*.hbs', 'app/tests/**/*.js', 'app/tests/*.js'],
                 tasks: ['ember_handlebars','concat', 'cssmin'],
                 options: {
                     debounceDelay: 100
