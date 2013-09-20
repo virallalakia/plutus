@@ -13,10 +13,15 @@
 		<servlet.version>2.5</servlet.version>
 		<junit.version>4.8.2</junit.version>
 		<spring.version>3.2.4.RELEASE</spring.version>
+		<cglib.version>2.2.2</cglib.version>
 		<jackson-jaxrs.version>1.9.13</jackson-jaxrs.version>
 		<dozer.version>5.4.0</dozer.version>
 		<cxf-rt.version>2.4.10</cxf-rt.version>
 		<cxf-common.version>2.4.10</cxf-common.version>
+		<hibernate.version>4.2.5.Final</hibernate.version>
+		<mysql.connector.version>5.1.26</mysql.connector.version>
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+		<javassist.version>3.12.1.GA</javassist.version>
 	</properties>
 
 	<dependencies>
@@ -67,6 +72,28 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- CGLIB is required to process @Configuration classes -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
 		</dependency>
 
 		<dependency>
@@ -124,6 +151,35 @@
 			<artifactId>cxf-common-utilities</artifactId>
 			<version>${cxf-common.version}</version>
 			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>${commons-dbcp.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${javassist.version}</version>
 		</dependency>
 	</dependencies>
 
