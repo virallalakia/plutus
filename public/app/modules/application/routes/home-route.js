@@ -1,0 +1,1 @@
+Plutus.HomeRoute = Plutus.AuthenticatedRoute.extend();

@@ -8,4 +8,5 @@ public/qunit/lib.js
 public/qunit/tests.js
 public/release/app.css.min
 public/release/app.min.js
+public/server.js
 node_modules/

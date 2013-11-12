@@ -1,10 +1,13 @@
 'use strict';
+// create the app
 var Plutus = Ember.Application.create();
 
+// setup the store
 Plutus.Store = DS.Store.extend({
-    adapter: DS.FixtureAdapter.create()
+    adapter: "DS.RESTAdapter"
 });
 
+// setup the routes
 Plutus.Router.map(function() {
     this.resource('welcome', function() {
         this.route('login');

@@ -26,12 +26,13 @@ module.exports = function(grunt) {
         concat: {
             vendor: {
                 src: ['app/lib/jquery-1.9.1.js', 'app/lib/bootstrap.js',
-                      'app/lib/handlebars-1.0.0.js', 'app/lib/ember-1.0.0.js',
-                      'app/lib/ember-data.js'],
+                      'app/lib/handlebars-1.0.0.js', 'app/lib/ember-1.1.2.js',
+                      'app/lib/ember-data-1.1.0.js', 'app/lib/jquery.cookie.js'],
                 dest:'debug/lib.js'
             },
             app: {
-                src: ['app/app.js', 'debug/templates.js', 'app/modules/**/*.js'],
+                src: ['app/app.js', 'debug/templates.js', 'app/modules/application/**/*.js',
+                      'app/modules/**/*.js'],
                 dest:'debug/app.js'
             },
             test: {
