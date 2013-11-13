@@ -1,23 +1,11 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
-  "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
-  ],
-  "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://www.openshift.com/"
-  },
-  "homepage": "http://www.openshift.com/",
+  "name": "Plutus",
+  "version": "0.0.8",
+  "description": "Plutus",
   "repository": {
     "type": "git",
-    "url": "https://gitub.com/openshift/origin-server"
-  },
+    "url": "https://github.com/virallalakia/plutus.git"
+   },
 
   "engines": {
     "node": ">= 0.6.0",
@@ -25,10 +13,11 @@
   },
 
   "dependencies": {
-  },
+     "express": "3.0.0"
+   },
   "devDependencies": {},
   "bundleDependencies": [],
 
   "private": true,
-  "main": "server.js"
+  "main": "public/server.js"
 }
