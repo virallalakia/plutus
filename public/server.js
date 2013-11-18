@@ -1,5 +1,6 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 
@@ -64,5 +65,5 @@ app.get('/accounts', function(req, res) {
 
 app.use(express.static(__dirname + '/debug'));
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app.listen(port);
+console.log('Listening on port ' + port + '...');
