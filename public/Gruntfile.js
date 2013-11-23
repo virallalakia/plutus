@@ -166,7 +166,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-qunit');
 
-    grunt.registerTask('default', ['ember_handlebars', 'concat', 'cssmin', 'clean', 'copy',
-                                   'connect', 'watch']);
+    grunt.registerTask('default', ['ember_handlebars', 'concat', 'cssmin', 'clean', 'copy']);
+    grunt.registerTask('watch', ['connect', 'watch']);
     grunt.registerTask('release', ['jshint','uglify', 'cssmin', 'clean', 'copy']);
 };
