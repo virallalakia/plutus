@@ -1,6 +1,8 @@
+#!/bin/env node
 var express = require('express'),
     app = express(),
-    port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+    port = process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 
@@ -65,5 +67,7 @@ app.get('/accounts', function(req, res) {
 
 app.use(express.static(__dirname + '/debug'));
 
-app.listen(port);
-console.log('Listening on port ' + port + '...');
+app.listen(port, ip, function() {
+    console.log('%s: Node server started on %s:%d ...',
+                Date(Date.now()), ip, port);
+});
