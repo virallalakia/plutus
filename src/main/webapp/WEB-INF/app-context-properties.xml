@@ -17,6 +17,8 @@
 			<list>
 				<value>classpath:app.properties</value>
 				<value>app.properties</value>
+				<value>classpath:jdbc.properties</value>
+				<value>jdbc.properties</value>
 			</list>
 		</property>
 	</bean>

@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:cxf="http://cxf.apache.org/core" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
 	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
 		http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
-        	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
-        	http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
-        	http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd ">
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+		http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd ">
 
 	<context:component-scan base-package="com.voidmainworld.plutus" />
+	<context:annotation-config />
 
 	<mvc:annotation-driven />
 
@@ -25,20 +38,58 @@
 
 	<import resource="app-context-properties.xml" />
 
-	<!-- <util:properties id="appProperties" location="classpath:app.properties" /> -->
+	<util:properties id="appProperties" location="classpath:app.properties" />
 
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location">
-			<value>classpath:app.properties</value>
+		<property name="locations">
+			<list>
+				<value>classpath:app.properties</value>
+				<value>classpath:jdbc.properties</value>
+			</list>
 		</property>
 	</bean>
+	
+	<!-- database -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+	p:url="${jdbc.databaseurl}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+		<property name="configurationClass">
+			<value>org.hibernate.cfg.AnnotationConfiguration</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- transaction -->
+	<tx:annotation-driven />
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
-	<bean id="plutusService" class="com.voidmainworld.plutus.service.impl.PlutusServiceImpl" />
+	<!-- plutus services -->
+	<bean id="testUserDAO" class="com.voidmainworld.plutus.dao.testuser.impl.TestUserDAOImpl">
+	</bean>
+
+	<bean id="testUserService" class="com.voidmainworld.plutus.daoservice.testuser.impl.TestUserServiceImpl">
+	</bean>
+
+	<bean id="testService" class="com.voidmainworld.plutus.service.impl.TestServiceImpl">
+	</bean>
 
 	<!-- REST - JAX-RS -->
 	<jaxrs:server id="rsApplicationService" address="${rest.path}">
 		<jaxrs:serviceBeans>
-			<ref bean="plutusService" />
+			<ref bean="testService" />
 		</jaxrs:serviceBeans>
 
 		<jaxrs:providers>
