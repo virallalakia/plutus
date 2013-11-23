@@ -1,4 +1,5 @@
-cd $OPENSHIFT_REPO_DIR
+#!/bin/env bash
+cd $OPENSHIFT_REPO_DIRi
 cd public
 npm install grunt-cli
 npm install .
