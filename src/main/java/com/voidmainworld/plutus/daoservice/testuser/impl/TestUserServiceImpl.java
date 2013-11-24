@@ -36,14 +36,17 @@ public class TestUserServiceImpl implements TestUserService {
 
 	@Transactional
 	public void addTestUser(TestUser testUser) {
+		testUserDAO.addTestUser(testUser);
 	}
 
 	@Transactional
 	public void updateTestUser(TestUser testUser) {
+		testUserDAO.updateTestUser(testUser);
 	}
 
 	@Transactional
 	public void removeTestUser(int id) {
+		testUserDAO.removeTestUser(id);
 	}
 
 }

@@ -17,6 +17,16 @@ public class TestUser {
 	@Column(name = "NAME")
 	private String	name;
 
+	public TestUser() {
+		super();
+	}
+
+	public TestUser(Integer id, String name) {
+		this();
+		this.id = id;
+		this.name = name;
+	}
+
 	public Integer getId() {
 		return id;
 	}

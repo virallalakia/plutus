@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -51,13 +53,22 @@ public class TestServiceImpl implements TestService {
 		return (new UserVO(testUser.getId(), testUser.getName()));
 	}
 
+	@POST
+	@Path("/")
 	public void addUser(UserVO user) {
+		testUserService.addTestUser(new TestUser(user.getId(), user.getName()));
 	}
 
-	public void updateUser(UserVO user) {
+	@POST
+	@Path("/{userId}")
+	public void updateUser(@PathParam("userId") String userId, UserVO user) {
+		testUserService.updateTestUser(new TestUser(Integer.parseInt(userId), user.getName()));
 	}
 
-	public void removeUser(String userId) {
+	@PUT
+	@Path("/{userId}")
+	public void removeUser(@PathParam("userId") String userId) {
+		testUserService.removeTestUser(Integer.parseInt(userId));
 	}
 
 }

@@ -12,7 +12,7 @@ public interface TestService {
 
 	public void addUser(UserVO user);
 
-	public void updateUser(UserVO user);
+	public void updateUser(String userId, UserVO user);
 
 	public void removeUser(String userId);
 

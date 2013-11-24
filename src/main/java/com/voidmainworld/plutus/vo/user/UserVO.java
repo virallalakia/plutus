@@ -28,7 +28,7 @@ public class UserVO implements Serializable {
 		this.name = name;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -42,6 +42,11 @@ public class UserVO implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "UserVO [id=" + id + ", name=" + name + "]";
 	}
 
 }
